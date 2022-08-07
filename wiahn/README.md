@@ -1,4 +1,4 @@
-# Kotlin-Study
+# Kotlin-Study (wiahn)
 
 ## 1. 코틀린 3강으로 끝내기 (~22/08/08)
 |        |     Title    |      Stack / IDE      | LINK |
