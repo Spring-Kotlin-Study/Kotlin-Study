@@ -1,14 +1,14 @@
 코틀린 3강으로 끝내기 - 2강. 코틀린 심화 문법
 ===========================================
 
-### 1) 람다식 (Lamda Expression, Anonymous Function)
-- 람다식(Lamda Expression)은 value처럼 다룰 수 있는 익명함수(Anonymous Function)이다.
+### 1) 람다식 (Lambda Expression, Anonymous Function)
+- 람다식(Lambda Expression)은 value처럼 다룰 수 있는 익명함수(Anonymous Function)이다.
 - 람다식은 메소드의 parameter로 넘겨줄 수 있다.
 - 람다식은 return 값으로 사용할 수 있다.
 - 람다식은 기본적으로 아래처럼 할 수 있다.
  
 ```kotlin
-// val [lamdaName] : [Type] = {[argumentList] -> [codeBody]}
+// val [lambdaName] : [Type] = {[argumentList] -> [codeBody]}
 val square_1 : (Int) -> (Int) = {number -> number*number}
 val square_2 = {number : Int -> number*number}
 
@@ -31,18 +31,18 @@ fun main(){
 
 - 람다를 표현하는 다른 방법도 있다.
 ```Kotlin
-fun invokeLamda(lamda_func : (Double) -> Boolean) : Boolean {
-    return lamda_func(5.2343)
+fun invokeLambda(lambda_func : (Double) -> Boolean) : Boolean {
+    return lambda_func(5.2343)
 }
 
 fun main(){
-      val lamda = {number : Double ->
+      val lambda = {number : Double ->
         number == 4.3213
     }
 
-    println(invokeLamda(lamda))
-    println(invokeLamda({it > 3.22}))
-    println(invokeLamda { it > 3.22 })
+    println(invokeLambda(lambda))
+    println(invokeLambda({it > 3.22}))
+    println(invokeLambda { it > 3.22 })
 }
 ```
 
