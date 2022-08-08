@@ -324,7 +324,7 @@ data class Ticket (val companyName : String,
 ## 6) companion object
 ```kotlin
 class Book private constructor(id:Int, name : String) {
-    companion object BookFactory {  // Interface 상속도 가능함
+    companion object BookFactory {
         fun create() = Book(0, "temp")
     }
 }
@@ -336,7 +336,7 @@ fun main() {
 - companion object
   - 자바의 static 대신에 사용되는 것으로 정적인 변수나 정적인 메소드를 선언할 때 사용
   - private property or method를 읽을 수 있음
-
+  - Interface 상속도 가능함
 
 ## 7) Object
 ```kotlin
@@ -349,7 +349,6 @@ object CarFactory {
         Cars.add(car)
         return car
     }
-
 }
 ```
 
