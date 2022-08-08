@@ -252,18 +252,19 @@ fun main() {
 # 2. Kotlin 고급 문법
 ## 1) 람다식
 ```kotlin
-// 1. Lamda : value처럼 다룰 수 있는 익명 함수
-// 1) 메소드의 파라미터로 넘겨줄 수 있음
-// 2) return 값으로 사용할 수 있음
-// 람다의 기본 정의
-// val lamdaName : Type = {argumentList -> codeBody}
-
 val square : (Int) -> (Int) = {num -> num*num}  // { } 안에 argumentList에서 type 지정해줘도 됨
 
 val nameAge = {name:String, age:Int ->
     "my name is ${name} and I'm ${age}"
 }
 ```
+- 람다의 기본 정의
+  - val lambdaName : Type = {argumentList -> codeBody}
+
+- Lambda : value처럼 다룰 수 있는 익명 함수
+  - 메소드의 파라미터로 넘겨줄 수 있음
+  - return 값으로 사용할 수 있음
+
 
 ## 2) 확장함수
 ```kotlin
@@ -276,6 +277,7 @@ fun extendString(name : String, age : Int) : String {
     val intrduceMyself : String.(Int) -> String = {
         "my name is ${this} I'm ${it}"
     }   // this : 확장함수를 call하는 object, it : param
+
     return name.intrduceMyself(age)
 }
 ```
@@ -296,7 +298,7 @@ val calculageGrade : (Int) -> String = {
 ## 4) 람다의 다른 표현 방법
 ```kotlin
 fun main() {
-    val lamda : (Double) -> Boolean = {
+    val lambda : (Double) -> Boolean = {
         it == 4.123
     }
     println(invokeLamda(lamda))
@@ -308,3 +310,46 @@ fun invokeLamda(lamda : (Double) -> Boolean) : Boolean {
     return lamda(5.234)
 }
 ```
+
+
+## 5) data class
+```kotlin
+data class Ticket (val companyName : String,
+                   val name: String,
+                   var date : String,
+                   var seatNumber:Int)
+```
+- toString(), hashCdoe(), equals(), copy()
+
+## 6) companion object
+```kotlin
+class Book private constructor(id:Int, name : String) {
+    companion object BookFactory {  // Interface 상속도 가능함
+        fun create() = Book(0, "temp")
+    }
+}
+
+fun main() {
+  var book : Book = Book.Companion.create()
+}
+```
+- companion object
+  - 자바의 static 대신에 사용되는 것으로 정적인 변수나 정적인 메소드를 선언할 때 사용
+  - private property or method를 읽을 수 있음
+
+
+## 7) Object
+```kotlin
+// Singleton Pattern
+object CarFactory {
+    val Cars : ArrayList<Car> = arrayListOf()
+
+    fun makeCar(horsePower: Int) : Car {
+        val car = Car(horsePower)
+        Cars.add(car)
+        return car
+    }
+
+}
+```
+
